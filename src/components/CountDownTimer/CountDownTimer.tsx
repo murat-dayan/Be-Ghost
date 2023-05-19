@@ -1,7 +1,6 @@
 import { View, Text } from 'react-native'
 import React, { useState, useEffect, FC } from 'react'
 import moment from 'moment'
-import GhostWhiteButton from '../GhostWhiteButton/GhostWhiteButton'
 import styles from './CountDownTimer.style'
 
 interface CountDownTimerProps{
