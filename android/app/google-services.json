@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "944578443876",
+    "project_id": "beghost-79da0",
+    "storage_bucket": "beghost-79da0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944578443876:android:f797203486af0d78c1bd71",
+        "android_client_info": {
+          "package_name": "com.beghost"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944578443876-lnp7u79uefnjg8pofqkb4o73us5p4f34.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJuQl5qirfK1rYSM02Q6_J4N7sj74Afjc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944578443876-lnp7u79uefnjg8pofqkb4o73us5p4f34.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
