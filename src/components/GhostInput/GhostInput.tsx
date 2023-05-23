@@ -1,16 +1,16 @@
 import { View, Text, TextInput, TextInputProps } from 'react-native'
-import React,{FC} from 'react'
+import React,{FC, RefObject} from 'react'
 import styles from './GhostInput.style'
 
 interface GhostInputProps extends TextInputProps{
-
+  inputReferance? : RefObject<TextInput>;
 }
 
 
-const GhostInput: FC<GhostInputProps> = ({...rest}) => {
+const GhostInput: FC<GhostInputProps> = ({inputReferance,...rest}) => {
   return (
     <View style={styles.input_container}>
-      <TextInput {...rest} style={styles.input_text_input} />
+      <TextInput ref={inputReferance} {...rest} style={styles.input_text_input} />
     </View>
   )
 }

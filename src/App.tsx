@@ -1,13 +1,12 @@
 import React from 'react'
-import Home from './screens/Home/Home'
-import LogIn from './screens/LogIn/Login/LogIn'
 import {NavigationContainer} from '@react-navigation/native'
 import StackNavigator from './routes/StackNavigator'
+import DrawerNavigator from './routes/DrawerNavigator'
 
 const App = () => {
   return (
       <NavigationContainer>
-        <StackNavigator />
+        <DrawerNavigator />
         
       </NavigationContainer>
 
