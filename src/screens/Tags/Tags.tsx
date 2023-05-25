@@ -1,13 +1,19 @@
-import { View, Text } from 'react-native'
-import React, { useRef, useState } from 'react'
+import { View, FlatList } from 'react-native'
+import React, { useState, useEffect} from 'react'
 import styles from './Tags.style'
 import GhostInput from '../../components/GhostInput/GhostInput'
 import colors from '../../config/colors'
 import database from '@react-native-firebase/database'
+import GhostCard from '../../components/GhostCard/GhostCard'
+
+type TagType={
+  tag:string;
+  createdAt:number
+}
 
 const Tags = () => {
 
-  const inputRef= useRef(null)
+  const [tags, settags] = useState<TagType[]>([])
 
   const [tag, setTag] = useState("")
 
@@ -29,6 +35,36 @@ const Tags = () => {
     }
   }
 
+
+
+  function handleGetsAllTags(){
+    const tagRef = database().ref('tags');
+    const tagsArray: TagType[] = [];
+  
+    try {
+      tagRef.on('child_added', (snapshot) => {
+        const tagValue = snapshot.val();
+        tagsArray.push(tagValue);
+      });
+    
+      tagRef.on('value', () => {
+        settags(tagsArray);
+      });
+      console.log(tags)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    handleGetsAllTags();
+  }, []);
+
+  const renderTagsItems=({ item }: { item: TagType })=>{
+    return(
+      <GhostCard cardInfo={item.tag} />
+    )
+  }
  
 
   return (
@@ -39,6 +75,12 @@ const Tags = () => {
         value={tag}
         onChangeText={(v) => setTag(v)}
         onSubmitEditing={handleSaveTags} />
+
+        <FlatList
+          data={tags}
+          renderItem={renderTagsItems}
+        />
+        
     </View>
   )
 }

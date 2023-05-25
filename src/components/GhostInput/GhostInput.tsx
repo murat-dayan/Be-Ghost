@@ -3,14 +3,13 @@ import React,{FC, RefObject} from 'react'
 import styles from './GhostInput.style'
 
 interface GhostInputProps extends TextInputProps{
-  inputReferance? : RefObject<TextInput>;
 }
 
 
-const GhostInput: FC<GhostInputProps> = ({inputReferance,...rest}) => {
+const GhostInput: FC<GhostInputProps> = ({...rest}) => {
   return (
     <View style={styles.input_container}>
-      <TextInput ref={inputReferance} {...rest} style={styles.input_text_input} />
+      <TextInput  {...rest} style={styles.input_text_input} />
     </View>
   )
 }
